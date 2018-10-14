@@ -3,7 +3,6 @@ package secrets
 import (
 	"encoding/json"
 	"io/ioutil"
-	"log"
 	"os"
 	"reflect"
 )
@@ -30,7 +29,6 @@ func LoadFromEnvironment(secrets Secrets) {
 		json_value := field.Tag.Get("json")
 		value := os.Getenv(json_value)
 		if value != "" {
-			log.Println(json_value + " has value " + value)
 			v.Field(index).SetString(value)
 		}
 	}

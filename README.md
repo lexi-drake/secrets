@@ -1,4 +1,5 @@
 # Secrets #
+[![CircleCI](https://circleci.com/gh/lexi-drake/secrets.svg?style=svg)](https://circleci.com/gh/lexi-drake/secrets)
 
 A tool for handling secrets in go.
 
@@ -19,12 +20,12 @@ import (
 
 type YourSecrets struct {
      Foo string `json:"foo"`
-     Bar int `json:"bar"`
+     Bar string `json:"bar"`
 }
 
 func (yourSecrets YourSecrets) Validate() bool {
      return (yourSecrets.Foo != "" &&
-     	     yourSecrets.Bar > 0)
+     	     yourSecrets.Bar != "")
 }
 
 ...
